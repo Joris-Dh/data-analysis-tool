@@ -3,11 +3,11 @@ package joris;
 import java.io.*;
 
 public class DataReader {
-    private String filePath;
+    private String csvData;
 
     // Constructor to set the file path
-    public DataReader(String filePath) {
-        this.filePath = filePath;
+    public DataReader(String csvData) {
+        this.csvData = csvData;
     }
 
     // Method to calculate monthly total for a specific month and year
@@ -17,19 +17,18 @@ public class DataReader {
         double totalValue = 0.0;
 
         try {
-            reader = new BufferedReader(new FileReader(filePath));
+            reader = new BufferedReader(new FileReader(csvData));
             reader.readLine(); // Skip the header row
             while ((line = reader.readLine()) != null) {
                 String[] row = line.split(",");
 
                 // Extract relevant data
-                String direction = row[0];
                 int fileYear = Integer.parseInt(row[1]);
                 String date = row[2];
                 int fileMonth = Integer.parseInt(date.split("/")[1]); // Extract month from date
 
                 // Check if the Value column is a valid number
-                String valueString = row[8].replace("$", "").replace(",", "");
+                String valueString = row[8].replace("$ ", "").replace(",", "");
                 if (isNumeric(valueString)) {
                     double value = Double.parseDouble(valueString);
 
@@ -69,7 +68,7 @@ public class DataReader {
         String line = "";
 
         try {
-            reader = new BufferedReader(new FileReader(filePath));
+            reader = new BufferedReader(new FileReader(csvData));
             while ((line = reader.readLine()) != null) {
                 String[] row = line.split(",");
                 for (String index : row) {
