@@ -2,11 +2,11 @@ package joris;
 
 import java.io.*;
 
-public class DataReader {
+public class Monthly {
     private String csvData;
 
     // Constructor to set the file path
-    public DataReader(String csvData) {
+    public Monthly(String csvData) {
         this.csvData = csvData;
     }
 
@@ -52,7 +52,7 @@ public class DataReader {
         return totalValue;
     }
 
-    // Method to calculate monthly total for a specific month and year
+    // Method to calculate monthly average for a specific month and year
     public double monthlyAverage(int month, int year) {
         BufferedReader reader = null;
         String line = "";
@@ -106,30 +106,30 @@ public class DataReader {
         }
     }
 
-    // Method to read the file and print its contents
-    public void readFile() {
-        BufferedReader reader = null;
-        String line = "";
+    // // Method to read the file and print its contents
+    // public void readFile() {
+    // BufferedReader reader = null;
+    // String line = "";
 
-        try {
-            reader = new BufferedReader(new FileReader(csvData));
-            while ((line = reader.readLine()) != null) {
-                String[] row = line.split(",");
-                for (String index : row) {
-                    System.out.printf("%-10s", index);
-                }
-                System.out.println();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    // try {
+    // reader = new BufferedReader(new FileReader(csvData));
+    // while ((line = reader.readLine()) != null) {
+    // String[] row = line.split(",");
+    // for (String index : row) {
+    // System.out.printf("%-10s", index);
+    // }
+    // System.out.println();
+    // }
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // } finally {
+    // try {
+    // if (reader != null) {
+    // reader.close();
+    // }
+    // } catch (IOException e) {
+    // e.printStackTrace();
+    // }
+    // }
+    // }
 }
