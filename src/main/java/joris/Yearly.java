@@ -1,19 +1,23 @@
 package joris;
 
+import java.text.DecimalFormat;
+
 import java.io.*;
 
 public class Yearly {
     private String csvData;
+    private double totalValue;
 
-    // Constructor to set the file path
     public Yearly(String csvData) {
         this.csvData = csvData;
+        this.totalValue = 0.0;
     }
 
-    public double yearlyTotal(int year) {
+    public void yearlyTotal(int year) {
         BufferedReader reader = null;
         String line = "";
-        double totalValue = 0.0;
+
+        // monthly totals
         double january = 0.0;
         double february = 0.0;
         double march = 0.0;
@@ -26,6 +30,9 @@ public class Yearly {
         double october = 0.0;
         double november = 0.0;
         double december = 0.0;
+
+        // Define a DecimalFormat to display full numbers without scientific notation
+        DecimalFormat df = new DecimalFormat("#,##0");
 
         try {
             reader = new BufferedReader(new FileReader(csvData));
@@ -89,20 +96,24 @@ public class Yearly {
             }
         }
         System.out.println();
-        System.out.println("January: " + january);
-        System.out.println("February: " + february);
-        System.out.println("March: " + march);
-        System.out.println("April: " + april);
-        System.out.println("May: " + may);
-        System.out.println("June: " + june);
-        System.out.println("July: " + july);
-        System.out.println("August: " + august);
-        System.out.println("September: " + september);
-        System.out.println("October: " + october);
-        System.out.println("November: " + november);
-        System.out.println("December: " + december);
+        System.out.println("January: " + df.format(january));
+        System.out.println("February: " + df.format(february));
+        System.out.println("March: " + df.format(march));
+        System.out.println("April: " + df.format(april));
+        System.out.println("May: " + df.format(may));
+        System.out.println("June: " + df.format(june));
+        System.out.println("July: " + df.format(july));
+        System.out.println("August: " + df.format(august));
+        System.out.println("September: " + df.format(september));
+        System.out.println("October: " + df.format(october));
+        System.out.println("November: " + df.format(november));
+        System.out.println("December: " + df.format(december));
         System.out.println();
-        System.out.println("Total: ");
+        System.out.println("Total: " + df.format(totalValue));
+    }
+
+    // Getter for totalValue
+    public double getTotalValue() {
         return totalValue;
     }
 

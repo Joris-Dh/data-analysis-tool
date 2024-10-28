@@ -60,14 +60,15 @@ public class UserInterface {
             }
 
             if (input.equals("yearly_total")) {
-
                 System.out.println("Enter the year (e.g., 2015): ");
                 int year = scanner.nextInt();
 
-                double total = yearlyData.yearlyTotal(year);
-                System.out.println(total);
+                yearlyData.yearlyTotal(year); // Call the method to calculate totals
+                double total = yearlyData.getTotalValue(); // Retrieve the total
+                System.out.println(total); // Print the total
             }
 
+            // HELP
             if (input.equals("help")) {
                 System.out.println();
                 System.out.println("COMMANDS:");
@@ -82,20 +83,45 @@ public class UserInterface {
 
             if (input.equals("help monthly_total")) {
                 System.out.println();
+                System.out.println(
+                        "Description: This command calculates and displays the total trade value (import and export combined) for a specified month in a specified year.");
+                System.out.println();
+                System.out.println("Parameters:");
+                System.out.println("- Year: The year for which the monthly total is required. Example: 2015.");
+                System.out.println(
+                        "- Month: The month for which the total is calculated, specified as an integer between 1 and 12 (where 1 represents January, and 12 represents December).");
             }
 
             if (input.equals("help monthly_average")) {
                 System.out.println();
+                System.out.println(
+                        "Description: This command calculates the average trade value for each day in a specified month and year.");
+                System.out.println();
+                System.out.println("Parameters:");
+                System.out.println("- Year: The year for which the monthly average is required. Example: 2015.");
+                System.out.println(
+                        "- Month: The month for which the average is calculated, specified as an integer between 1 and 12.");
             }
 
             if (input.equals("help yearly_total")) {
                 System.out.println();
+                System.out.println(
+                        "Description: This command calculates and displays the total trade value (import and export combined) for an entire year.");
+                System.out.println();
+                System.out.println("Parameters:");
+                System.out.println("- Year: The year for which the yearly total is required. Example: 2015.");
             }
 
             if (input.equals("help yearly_average")) {
                 System.out.println();
+                System.out.println(
+                        "Description: This command (if implemented) would calculate and display the average monthly trade value over a specified year. This is useful for understanding the general trade trend over the year.");
+                System.out.println();
+                System.out.println("Parameters:");
+                System.out.println("- Year: The year for which the average is required. Example: 2015.");
             }
 
+            // EXIT
             if (input.equals("exit")) {
                 System.out.println("Exiting the Data Analysis Tool. Goodbye!");
                 break;
