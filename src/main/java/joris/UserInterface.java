@@ -46,5 +46,20 @@ public class UserInterface {
             System.out.printf("Total import and export value for %02d/%d: $%.2f%n", month, year, total);
         }
 
+        if (input.equals("monthly_average")) {
+            // Input month and year from the user
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Enter the year (e.g., 2015): ");
+            int year = scanner.nextInt();
+            System.out.println("Enter the month (1-12): ");
+            int month = scanner.nextInt();
+            scanner.close();
+
+            // Call monthlyTotal method and display the result
+            double total = dataReader.monthlyAverage(month, year);
+            System.out.printf("The monthly average for %02d/%d: $%.2f%n", month, year, total);
+        }
+
     }
 }
