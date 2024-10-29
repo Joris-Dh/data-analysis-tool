@@ -38,8 +38,13 @@ public class Monthly {
                     double value = Double.parseDouble(valueString);
 
                     // Check if this row matches the specified month and year
-                    if (fileYear == year && fileMonth == month && fileCountry == country && fileCommodity == commodity
-                            && fileTransport_mode == transport_mode && fileMeasure == measure) {
+                    if (fileYear == year && fileMonth == month &&
+                            (country.equalsIgnoreCase("All") || fileCountry.equalsIgnoreCase(country)) &&
+                            (commodity.equalsIgnoreCase("All") || fileCommodity.equalsIgnoreCase(commodity)) &&
+                            (transport_mode.equalsIgnoreCase("All")
+                                    || fileTransport_mode.equalsIgnoreCase(transport_mode))
+                            &&
+                            (measure.equalsIgnoreCase("$") || fileMeasure.equalsIgnoreCase(measure))) {
                         totalValue += value;
                     }
                 }
@@ -87,8 +92,13 @@ public class Monthly {
                     double value = Double.parseDouble(valueString);
 
                     // Check if this row matches the specified month and year
-                    if (fileYear == year && fileMonth == month && fileCountry == country && fileCommodity == commodity
-                            && fileTransport_mode == transport_mode && fileMeasure == measure) {
+                    if (fileYear == year && fileMonth == month &&
+                            (country.equalsIgnoreCase("All") || fileCountry.equalsIgnoreCase(country)) &&
+                            (commodity.equalsIgnoreCase("All") || fileCommodity.equalsIgnoreCase(commodity)) &&
+                            (transport_mode.equalsIgnoreCase("All")
+                                    || fileTransport_mode.equalsIgnoreCase(transport_mode))
+                            &&
+                            (measure.equalsIgnoreCase("$") || fileMeasure.equalsIgnoreCase(measure))) {
                         totalValue += value;
                         totalRows += 1;
                     }

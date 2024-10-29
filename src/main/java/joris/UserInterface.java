@@ -63,6 +63,7 @@ public class UserInterface {
                 int year = scanner.nextInt();
                 System.out.println("Enter the month (1-12): ");
                 int month = scanner.nextInt();
+                scanner.nextLine();
                 System.out.println("Enter the country (default: 'All')");
                 String country = scanner.nextLine();
                 System.out.println("Enter the commodity (default: 'All')");
@@ -71,11 +72,9 @@ public class UserInterface {
                 String transport_mode = scanner.nextLine();
                 System.out.println("Enter the measure (default: '$')");
                 String measure = scanner.nextLine();
-                scanner.nextLine();
 
                 double total = monthlyData.monthlyAverage(month, year, country, commodity, transport_mode, measure);
-                System.out.printf("The monthly average for %02d/%d: $%.2f%n", month, year, country, commodity,
-                        transport_mode, measure, total);
+                System.out.printf("The monthly average for %02d/%d: $%.2f%n", month, year, total);
             }
 
             if (input.equals("yearly_total")) {
