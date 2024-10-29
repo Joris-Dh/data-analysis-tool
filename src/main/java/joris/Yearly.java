@@ -112,11 +112,6 @@ public class Yearly {
         System.out.println("Total: " + df.format(totalValue));
     }
 
-    // Getter for totalValue
-    public double getTotalValue() {
-        return totalValue;
-    }
-
     // Helper method to check if a string is numeric
     private boolean isNumeric(String str) {
         try {

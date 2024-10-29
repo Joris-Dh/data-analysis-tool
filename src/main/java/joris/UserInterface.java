@@ -42,9 +42,18 @@ public class UserInterface {
                 int year = scanner.nextInt();
                 System.out.println("Enter the month (1-12): ");
                 int month = scanner.nextInt();
+                scanner.nextLine();
+                System.out.println("Enter the country (default: 'All'):");
+                String country = scanner.nextLine();
+                System.out.println("Enter the commodity (default: 'All'):");
+                String commodity = scanner.nextLine();
+                System.out.println("Enter the transport mode (default: 'All'):");
+                String transport_mode = scanner.nextLine();
+                System.out.println("Enter the measure (default: '$'):");
+                String measure = scanner.nextLine();
 
                 // Call monthlyTotal method and display the result
-                double total = monthlyData.monthlyTotal(month, year);
+                double total = monthlyData.monthlyTotal(month, year, country, commodity, transport_mode, measure);
                 System.out.printf("Total import and export value for %02d/%d: $%.2f%n", month, year, total);
             }
 
@@ -54,18 +63,27 @@ public class UserInterface {
                 int year = scanner.nextInt();
                 System.out.println("Enter the month (1-12): ");
                 int month = scanner.nextInt();
+                System.out.println("Enter the country (default: 'All')");
+                String country = scanner.nextLine();
+                System.out.println("Enter the commodity (default: 'All')");
+                String commodity = scanner.nextLine();
+                System.out.println("Enter the transport mode (default: 'All')");
+                String transport_mode = scanner.nextLine();
+                System.out.println("Enter the measure (default: '$')");
+                String measure = scanner.nextLine();
+                scanner.nextLine();
 
-                double total = monthlyData.monthlyAverage(month, year);
-                System.out.printf("The monthly average for %02d/%d: $%.2f%n", month, year, total);
+                double total = monthlyData.monthlyAverage(month, year, country, commodity, transport_mode, measure);
+                System.out.printf("The monthly average for %02d/%d: $%.2f%n", month, year, country, commodity,
+                        transport_mode, measure, total);
             }
 
             if (input.equals("yearly_total")) {
                 System.out.println("Enter the year (e.g., 2015): ");
                 int year = scanner.nextInt();
+                scanner.nextLine();
 
                 yearlyData.yearlyTotal(year); // Call the method to calculate totals
-                double total = yearlyData.getTotalValue(); // Retrieve the total
-                System.out.println(total); // Print the total
             }
 
             // HELP

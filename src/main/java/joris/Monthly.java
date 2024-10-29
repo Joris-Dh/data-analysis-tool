@@ -11,7 +11,8 @@ public class Monthly {
     }
 
     // Method to calculate monthly total for a specific month and year
-    public double monthlyTotal(int month, int year) {
+    public double monthlyTotal(int month, int year, String country, String commodity, String transport_mode,
+            String measure) {
         BufferedReader reader = null;
         String line = "";
         double totalValue = 0.0;
@@ -26,6 +27,10 @@ public class Monthly {
                 int fileYear = Integer.parseInt(row[1]);
                 String date = row[2];
                 int fileMonth = Integer.parseInt(date.split("/")[1]); // Extract month from date
+                String fileCountry = row[4];
+                String fileCommodity = row[5];
+                String fileTransport_mode = row[6];
+                String fileMeasure = row[7];
 
                 // Check if the Value column is a valid number
                 String valueString = row[8].replace("$ ", "").replace(",", "");
@@ -33,7 +38,8 @@ public class Monthly {
                     double value = Double.parseDouble(valueString);
 
                     // Check if this row matches the specified month and year
-                    if (fileYear == year && fileMonth == month) {
+                    if (fileYear == year && fileMonth == month && fileCountry == country && fileCommodity == commodity
+                            && fileTransport_mode == transport_mode && fileMeasure == measure) {
                         totalValue += value;
                     }
                 }
@@ -53,7 +59,8 @@ public class Monthly {
     }
 
     // Method to calculate monthly average for a specific month and year
-    public double monthlyAverage(int month, int year) {
+    public double monthlyAverage(int month, int year, String country, String commodity, String transport_mode,
+            String measure) {
         BufferedReader reader = null;
         String line = "";
         double totalValue = 0.0;
@@ -69,6 +76,10 @@ public class Monthly {
                 int fileYear = Integer.parseInt(row[1]);
                 String date = row[2];
                 int fileMonth = Integer.parseInt(date.split("/")[1]); // Extract month from date
+                String fileCountry = row[4];
+                String fileCommodity = row[5];
+                String fileTransport_mode = row[6];
+                String fileMeasure = row[7];
 
                 // Check if the Value column is a valid number
                 String valueString = row[8].replace("$ ", "").replace(",", "");
@@ -76,7 +87,8 @@ public class Monthly {
                     double value = Double.parseDouble(valueString);
 
                     // Check if this row matches the specified month and year
-                    if (fileYear == year && fileMonth == month) {
+                    if (fileYear == year && fileMonth == month && fileCountry == country && fileCommodity == commodity
+                            && fileTransport_mode == transport_mode && fileMeasure == measure) {
                         totalValue += value;
                         totalRows += 1;
                     }
@@ -105,31 +117,4 @@ public class Monthly {
             return false;
         }
     }
-
-    // // Method to read the file and print its contents
-    // public void readFile() {
-    // BufferedReader reader = null;
-    // String line = "";
-
-    // try {
-    // reader = new BufferedReader(new FileReader(csvData));
-    // while ((line = reader.readLine()) != null) {
-    // String[] row = line.split(",");
-    // for (String index : row) {
-    // System.out.printf("%-10s", index);
-    // }
-    // System.out.println();
-    // }
-    // } catch (Exception e) {
-    // e.printStackTrace();
-    // } finally {
-    // try {
-    // if (reader != null) {
-    // reader.close();
-    // }
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-    // }
-    // }
 }
