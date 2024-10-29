@@ -82,7 +82,15 @@ public class UserInterface {
                 int year = scanner.nextInt();
                 scanner.nextLine();
 
-                yearlyData.yearlyTotal(year); // Call the method to calculate totals
+                yearlyData.yearlyTotal(year);
+            }
+
+            if (input.equals("yearly_average")) {
+                System.out.println("Enter the year (e.g., 2015): ");
+                int year = scanner.nextInt();
+                scanner.nextLine();
+
+                yearlyData.yearlyAverage(year);
             }
 
             // HELP
@@ -94,8 +102,8 @@ public class UserInterface {
                 System.out.println("monthly_total - Get total for a specific month and year");
                 System.out.println("monthly_average - Get monthly average for a specific month and year");
                 System.out.println("yearly_total - Get total for a specific year");
-                System.out.println("yearly_average - Get yearly average (if implemented)");
-                System.out.println("overview - Display a summary of the data (if implemented)");
+                System.out.println("yearly_average - Get yearly average");
+                System.out.println("overview - Display a summary of the data");
             }
 
             if (input.equals("help monthly_total")) {
